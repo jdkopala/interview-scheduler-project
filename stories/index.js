@@ -186,6 +186,6 @@ storiesOf('Appointment', module)
     .add("Error", () => (
       <Error 
       message="Could not delete appointment"
-      onClose={() => action('onClose')}
+      onClose={action('onClose')}
       />
     ))
