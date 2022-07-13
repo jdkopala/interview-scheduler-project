@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -189,24 +189,26 @@ storiesOf('Appointment', module)
       message="Could not delete appointment"
       onClose={action('onClose')}
       />
-    ));
-
-storiesOf('Form', module)
-  .addParameters({
-    backgrounds: [{ name: 'white', value: '#fff', default: true}]
-  })
-  .add('Edit', () => (
-    <Form
-    student="Jesse Kopala"
-    interviewer={3}
-    interviewers={interviewers}
-    onSave={action('onSave')}
-    onCancel={action('onCancel')}
-    />
-  ))
-  .add('Create', () => (
-    <Form
-    interviewers={interviewers}
-    onSave={action('onSave')}
-    onCancel={action('onCancel')}
-  ))
+    ))
+    .add('Edit', () => (
+      <Form
+      student="Jesse Kopala"
+      interviewer={3}
+      interviewers={interviewers}
+      onSave={action('onSave')}
+      onCancel={action('onCancel')}
+      />
+    ))
+    .add('Create', () => (
+      <Form
+      interviewers={interviewers}
+      onSave={action('onSave')}
+      onCancel={action('onCancel')}
+      />
+    ))
+    .add("Appointment Empty", () => {
+      <Fragment>
+        <Appointment id={1} time="4pm" />
+        <Appointment time="5pm" />
+      </Fragment>
+    })
