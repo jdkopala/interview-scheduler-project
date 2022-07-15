@@ -59,9 +59,9 @@ export default function Application(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:8001/api/days'),
-      axios.get('http://localhost:8001/api/appointments'),
-      axios.get('http://localhost:8001/api/interviewers')
+      axios.get('/api/days'),
+      axios.get('/api/appointments'),
+      axios.get('/api/interviewers')
     ])
       .then((all) => {
         console.log('interviewers: ', all[2].data)
@@ -70,13 +70,13 @@ export default function Application(props) {
   }, []);
 
   const schedule = dailyAppointments.map((appointment) => {
-    const interview = getInterview(state, appointment.interview)
+    // const interview = getInterview(state, appointment.interview) // UNCOMMENT THIS SOON?
     return(
       <Appointment
       key={appointment.id}
       id={appointment.id}
       time={appointment.time}
-      interview={interview}
+      // interview={interview} // UNCOMMENT THIS TOO
       />
     )
   });
