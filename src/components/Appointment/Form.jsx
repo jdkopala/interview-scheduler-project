@@ -35,8 +35,7 @@ const Form = (props) => {
           />
         </form>
         <InterviewerList
-          interviewer={interviewer}
-          interviewers={props.interviewers}
+          interviewers={[]}
           value={interviewer}
           onChange={setInterviewer}
         />
