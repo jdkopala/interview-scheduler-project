@@ -34,7 +34,7 @@ const Appointment = (props) => {
       interviewer={props.interview.interviewer} 
       />
     )}
-      {mode === CREATE && <Form onCancel={onCancel} />}
+      {mode === CREATE && <Form interviewers={props.interviewers} onCancel={onCancel} />}
     </article>
   );
 };
