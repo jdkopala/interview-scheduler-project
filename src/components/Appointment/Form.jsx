@@ -10,16 +10,16 @@ const Form = (props) => {
   const reset = () => {
     setStudent('');
     setInterviewer(null);
-  }
+  };
 
   const cancel = () => {
     reset();
     props.onCancel();
-  }
+  };
 
   const save = () => {
     props.onSave(student, interviewer);
-  }
+  };
 
   return (
     <main className="appointment__card appointment__card--create">
