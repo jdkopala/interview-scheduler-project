@@ -68,8 +68,6 @@ const Appointment = (props) => {
     });
   };
 
-  console.log(props.interview, mode);
-
   return (
     <article className='appointment'>
       <Header time={props.time} />
