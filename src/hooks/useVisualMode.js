@@ -7,7 +7,6 @@ const useVisualMode = (initialMode) => {
   const [history, setHistory] = useState([initialMode])
   // Function to go from one mode to another
   function transition(newMode, replace = false) {
-    console.log("newMode; ", newMode)
     if (replace) {
       setMode(newMode)
       setHistory((prev) => {
