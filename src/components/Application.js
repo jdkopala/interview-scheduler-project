@@ -82,15 +82,15 @@ export default function Application(props) {
     )
   }
 
-  function deleteInterview(id) {
+  async function cancelInterview(id) {
+    await axios.delete(`api/appointments/${id}`)
     const appointments = {
       ...state.appointments,
       [id]: {...state.appointments[id], interview: null}
     };
-    return axios.delete(`api/appointments/${id}`, state.appointments[id])
-    .then(
-      setState({...state, appointments})
-    )
+      setState((prev) => {
+        return {...prev, appointments}
+      })
   }
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
@@ -106,7 +106,7 @@ export default function Application(props) {
       interview={interview}
       interviewers={dailyInterviewers}
       bookInterview={bookInterview}
-      deleteInterview={deleteInterview}
+      cancelInterview={cancelInterview}
       />
     )
   });

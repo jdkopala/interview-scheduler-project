@@ -6,8 +6,8 @@ import Form from './Form';
 import Status from './Status';
 import Confirm from './Confirm';
 import Error from './Error';
-import "./styles.scss"
 import useVisualMode from 'hooks/useVisualMode';
+import "./styles.scss"
 
 const EMPTY = 'EMPTY';
 const SHOW = 'SHOW';
@@ -34,18 +34,18 @@ const Appointment = (props) => {
   };
 
   function save(name, interviewer) {
-    transition(SAVING);
     const interview = {
       student: name,
       interviewer
     };
+    transition(SAVING);
     props.bookInterview(props.id, interview)
       .then(() => {
         transition(SHOW)
       })
       .catch((err) => {
         console.log(err)
-        transition(ERROR_SAVE)
+        transition(ERROR_SAVE, true)
       });
   };
 
@@ -57,18 +57,18 @@ const Appointment = (props) => {
     transition(EDIT);
   };
 
-  function cancelInterview() {
-    transition(DELETING);
-    props.deleteInterview(props.id)
+  function destroy() {
+    transition(DELETING, true);
+    props.cancelInterview(props.id)
     .then(() => {
       transition(EMPTY)
     })
-    .catch((err) => {
-      console.log(err)
-      transition(ERROR_DELETE)
+    .catch(() => {
+      transition(ERROR_DELETE, true)
     });
-    
   };
+
+  console.log(props.interview, mode);
 
   return (
     <article className='appointment'>
@@ -102,9 +102,6 @@ const Appointment = (props) => {
           onCancel={onCancel}
         />
       )}
-      {mode === SAVING && (
-        <Status message={"Saving"} />
-      )}
       {mode === ERROR_SAVE && (
         <Error 
           message={'Error saving appointment'}
@@ -117,13 +114,16 @@ const Appointment = (props) => {
           onClose={onCancel}
         />
       )}
+      {mode === SAVING && (
+        <Status message={"Saving"} />
+      )}
       {mode === DELETING && (
         <Status message={"Deleting"} />
       )}
       {mode === CONFIRMDELETE && (
         <Confirm
           onCancel={onCancel}
-          onConfirm={cancelInterview}
+          onConfirm={destroy}
           message={"Delete the appointment?"}
         />
       )}
