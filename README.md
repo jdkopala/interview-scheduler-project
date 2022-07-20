@@ -1,23 +1,24 @@
 # Interview Scheduler
 
+Interview Scheduler is a SPA made with React, Axios, SASS and Node.js that displays a week worth of days (Monday to Friday), and allows users to schedule, edit and delete appointments.
+
+**This project is not a fully functional app, and was made as a part of my education at Lighthouse Labs**
+
+## Screenshots
+
 ## Setup
 
 Install dependencies with `npm install`.
+Start the server with `npm start` from the interview-scheduler directory, and run the app in your web browser.
 
-## Running Webpack Development Server
+## Use
 
-```sh
-npm start
-```
+- Navigate to different days using the sidebar on the left, the selected day will be highlit when the user clicks.
 
-## Running Jest Test Framework
+- Add an appointment by clicking the "+" button in an empty appointment, user will type their name and select an interviewer. Click on **Save** to confirm and save the appointment, click **Cancel** to return to the empty appointment view.
 
-```sh
-npm test
-```
+- When an appointment is booked, the user can **EDIT** or **DELETE** using the buttons in the bottom right corner of the appointment.
 
-## Running Storybook Visual Testbed
+- To **EDIT**, the user will click on the **EDIT** button and enter a new name in the text input, and/or selects a new interviewer and can then click **SAVE** to commit the changes, or **CANCEL** to return to the booked appointment view.
 
-```sh
-npm run storybook
-```
+- To **DELETE**, the user clicks on the **DELETE** button and will be given a prompt to confirm whether or not they would like to delete the appointment. Click **CONFIRM** to commit and delete the appointment, or click **CANCEL** to return to the book ed appointment view.
