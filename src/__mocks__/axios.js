@@ -52,7 +52,7 @@ const fixtures = {
     }
   }
 };
-
+// Mock functions for testing async operations in Jest
 export default {
   get: jest.fn(url => {
     if (url === "/api/days") {

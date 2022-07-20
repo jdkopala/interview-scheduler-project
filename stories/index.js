@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions";
 
 import "index.scss";
 import "../src/components/Appointment/styles.scss";
-
+// Import components for storybook testing
 import Button from "components/Button";
 import DayListItem from "components/DayListItem";
 import DayList from "components/DayList";

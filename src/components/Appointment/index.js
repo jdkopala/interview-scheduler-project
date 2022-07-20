@@ -9,6 +9,7 @@ import Error from './Error';
 import useVisualMode from 'hooks/useVisualMode';
 import "./styles.scss"
 
+// Variables for useVisualMode and conditional rendering of appointment spots
 const EMPTY = 'EMPTY';
 const SHOW = 'SHOW';
 const CREATE = 'CREATE';
@@ -20,11 +21,11 @@ const ERROR_SAVE = 'ERROR_SAVE';
 const ERROR_DELETE = 'ERROR_DELETE';
 
 const Appointment = (props) => {
-
+  // Condintionally render each appointment spot on load
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+  // Functions for transitioning between visual modes
   function onAdd() {
     transition(CREATE);
   };
@@ -32,7 +33,16 @@ const Appointment = (props) => {
   function onCancel() {
     back();
   };
-
+  
+  function removeAppointment() {
+    transition(CONFIRMDELETE);
+  };
+  
+  function editAppointment() {
+    transition(EDIT);
+  };
+  
+  // Async function, saves the interview to the database
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -48,14 +58,7 @@ const Appointment = (props) => {
       });
   };
 
-  function removeAppointment() {
-    transition(CONFIRMDELETE);
-  };
-
-  function editAppointment() {
-    transition(EDIT);
-  };
-
+  // Another async function, deletes an interview from the database
   function destroy() {
     transition(DELETING, true);
     props.cancelInterview(props.id)

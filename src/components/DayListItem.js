@@ -15,6 +15,7 @@ export default function DayListItem(props) {
   return(
     <li onClick={() => setDay(name)} className={listItemClass} selected={props.selected} data-testid="day">
       <h2 className="text--regular">{name}</h2>
+      {/* Conditional rendering for how many spots remain for each day */}
       {spots === 0 && <h3 className="text--light">no spots remaining</h3>}
       {spots === 1 && <h3 className="text--light">{spots} spot remaining</h3>}
       {spots > 1 && <h3 className="text--light">{spots} spots remaining</h3>}

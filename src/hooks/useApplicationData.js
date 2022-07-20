@@ -2,16 +2,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useApplicationData = () => {
-
+  // State management object
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
   });
-  
+  // This sets the chose day (state.day)
   const setDay = day => setState({ ...state, day });
-  
+  // API request to retrieve the data from the server to display
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
@@ -40,7 +40,7 @@ const useApplicationData = () => {
 
     return newDaysArr;
   }
-  
+  // This function saves an interview to the database and updates the spots remaining in the sidebar in the app
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -58,7 +58,7 @@ const useApplicationData = () => {
           return {...prev, days: updateSpots(prev)}
         }))
   }
-  
+  // This function removes an interview from the database and updates the spots remaining in the sidebar in the app
   async function cancelInterview(id) {
     await axios.delete(`api/appointments/${id}`)
     const appointments = {

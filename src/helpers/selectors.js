@@ -1,3 +1,4 @@
+// Retrieves the appointments from the state object for display
 export function getAppointmentsForDay(state, day) {
   let appointments = [];
   let appointmentIDs = [];
@@ -13,7 +14,7 @@ export function getAppointmentsForDay(state, day) {
 
   return appointments;
 };
-
+// Retrieves the interviewers for the day from the state object
 export function getInterviewersForDay(state, day) {
   let interviewers = [];
   let interviewerIDs = [];
@@ -29,7 +30,7 @@ export function getInterviewersForDay(state, day) {
 
   return interviewers;
 };
-
+// Retrieves the interview object (if present) from the current state
 export function getInterview(state, interview) {
   if (!interview) {
     return null;
