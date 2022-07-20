@@ -138,7 +138,7 @@ describe("Application", () => {
     
     // 7. Wait until the element with the "Add" button is displayed.
     fireEvent.click(getByAltText(appointment, /close/i))
-    expect(getByText(appointment, "Save"));
+    expect(getByText(appointment, "Save")).toBeInTheDocument();
   });
 
   it('shows the delete error when failing to delete an existing appointment', async () => {
@@ -168,7 +168,7 @@ describe("Application", () => {
     
     // 7. Wait until the element with the "Add" button is displayed.
     fireEvent.click(getByAltText(appointment, /close/i))
-    expect(getByText(container, "Archie Cohen"));
+    expect(getByText(container, "Archie Cohen")).toBeInTheDocument();
   });
 })
 
