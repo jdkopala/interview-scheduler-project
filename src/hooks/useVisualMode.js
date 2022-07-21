@@ -8,25 +8,26 @@ const useVisualMode = (initialMode) => {
   // Function to go from one mode to another
   function transition(newMode, replace = false) {
     if (replace) {
-      setMode(newMode)
+      setMode(newMode);
       setHistory((prev) => {
         return [...prev.slice(0, prev.length - 1), mode]
-      })
+      });
     } else {
       setMode(newMode);
-      setHistory([...history, newMode])
-    }
+      setHistory([...history, newMode]);
+    };
   };
+  
   // Function to go back to a previous mode in the history
   function back() {
     if (history.length === 1) {
-      return
+      return;
     } else {
       const temp = history;
-      temp.pop()
-      setHistory(temp)
-      setMode(temp[temp.length - 1])
-    }
+      temp.pop();
+      setHistory(temp);
+      setMode(temp[temp.length - 1]);
+    };
   };
 
   return { mode, transition, back }
