@@ -2,9 +2,13 @@
 
 Interview Scheduler is a SPA made with React, Axios, SASS and Node.js that displays a week worth of days (Monday to Friday), and allows users to schedule, edit and delete appointments.
 
-**This project is not a fully functional app, and was made as a part of my education at Lighthouse Labs**
 
 ## Screenshots
+
+![App view] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/DayViewNoMouseover.png)
+![App view, hover over an appointment] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/DayViewHighlit.png)
+![Create new appointment form] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/CreateNewApptForm.png)
+![Edit existing appointments] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/EditApptForm.png)
 
 ## Setup
 
