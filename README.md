@@ -1,6 +1,7 @@
 # Interview Scheduler
 
-Interview Scheduler is a SPA made with React, Axios, SASS and Node.js that displays a week worth of days (Monday to Friday), and allows users to schedule, edit and delete appointments.
+Interview Scheduler is a SPA made with React, Axios, Webpack SASS and Node.js that displays a week worth of days (Monday to Friday), and allows users to schedule, edit and delete appointments.
+Other frameworks for testing include Jest, Storybook, React Testing Library, and Cypress!
 
 
 ## Screenshots
