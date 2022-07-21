@@ -5,10 +5,10 @@ Interview Scheduler is a SPA made with React, Axios, SASS and Node.js that displ
 
 ## Screenshots
 
-![App view] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/DayViewNoMouseover.png)
-![App view, hover over an appointment] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/DayViewHighlit.png)
-![Create new appointment form] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/CreateNewApptForm.png)
-![Edit existing appointments] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/EditApptForm.png)
+!["App view"] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/DayViewNoMouseover.png)
+!["App view, hover over an appointment"] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/DayViewHighlit.png)
+!["Create new appointment form"] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/CreateNewApptForm.png)
+!["Edit existing appointments"] (https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/EditApptForm.png)
 
 ## Setup
 
