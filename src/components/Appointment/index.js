@@ -21,7 +21,7 @@ const ERROR_SAVE = 'ERROR_SAVE';
 const ERROR_DELETE = 'ERROR_DELETE';
 
 const Appointment = (props) => {
-  // Condintionally render each appointment spot on load
+  // Conditionally render each appointment spot on load
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );

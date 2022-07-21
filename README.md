@@ -11,10 +11,26 @@ Other frameworks for testing include Jest, Storybook, React Testing Library, and
 !["Create new appointment form"](https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/CreateNewApptForm.png)
 !["Edit existing appointments"](https://github.com/jdkopala/interview-scheduler-project/blob/master/DOCS/EditApptForm.png)
 
+## Dependencies
+
+- Axios
+- classnames
+- normalize.css
+- react
+- react-dom
+- react scripts
+
 ## Setup
 
 Install dependencies with `npm install`.
 Start the server with `npm start` from the interview-scheduler directory, and run the app in your web browser.
+
+# API setup
+
+Additionally, you need to clone the scheduler api from [HERE](https://github.com/lighthouse-labs/scheduler-api).
+From the directory you create run `npm install` to install dependencies. Then, in a second terminal run `npm start` to boot up the API server.
+
+**There is more information available in the scheduler-api readme**
 
 ## Use
 

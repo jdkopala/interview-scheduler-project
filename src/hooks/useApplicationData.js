@@ -67,7 +67,7 @@ const useApplicationData = () => {
     };
     setState((prev) => {
       return { ...prev, appointments }
-    });
+    })
     setState((prev) => {
       return { ...prev, days: updateSpots(prev) }
     });

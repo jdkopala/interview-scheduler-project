@@ -29,8 +29,8 @@ const Form = (props) => {
       setError("Please select an interviewer");
       return;
     }
-    setError('');
     props.onSave(student, interviewer);
+    setError('');
   };
 
   return (
@@ -43,7 +43,7 @@ const Form = (props) => {
             value={student}
             type="text"
             placeholder={"Enter Student Name"}
-            onChange={(e) => {setStudent(e.target.value)}}
+            onChange={(e) => setStudent(e.target.value)}
             data-testid="student-name-input"
           />
         </form>
