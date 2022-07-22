@@ -51,7 +51,6 @@ const useApplicationData = () => {
       [id]: appointment
     };
     let promise = axios.put(`api/appointments/${id}`, appointments[id])
-    console.log("Promise: ", promise)
     return promise
       .then(() =>
         setState((prev) => {
@@ -66,13 +65,13 @@ const useApplicationData = () => {
       [id]: { ...state.appointments[id], interview: null }
     };
     return axios.delete(`api/appointments/${id}`)
-    .then(
+    .then( () =>
       setState((prev) => {
       return { ...prev, days: updateSpots(prev), appointments }
     }))
   };
 
-  return { state, setState, updateSpots, setDay, bookInterview, cancelInterview }
+  return { state, setDay, bookInterview, cancelInterview }
 };
 
 export default useApplicationData;
