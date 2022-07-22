@@ -24,13 +24,13 @@ const useApplicationData = () => {
   }, []);
 
   // Use this function to update the state when an appointment is booked or cancelled
-  const updateSpots = (state) => {
+  const updateSpots = (state, appointments) => {
     // Check the index of the day currently selected in state, from the array of days in state
     const currentDayIndex = state.days.findIndex((day) => day.name === state.day);
     // Access the current day using the index
     const currentDay = state.days[currentDayIndex];
     // This variable will refer to how many spots are open on the current day
-    const spots = currentDay.appointments.filter((id) => !state.appointments[id].interview).length;
+    const spots = currentDay.appointments.filter((id) => !appointments[id].interview).length;
     // Replace the spots in the state.days object that belongs to the current day
     const newDayObj = { ...currentDay, spots };
     // Create a new array of day objects for state
@@ -50,11 +50,11 @@ const useApplicationData = () => {
       ...state.appointments,
       [id]: appointment
     };
-    let promise = axios.put(`api/appointments/${id}`, appointments[id])
-    return promise
+    const days = updateSpots(state, appointments);
+    return axios.put(`api/appointments/${id}`, appointments[id])
       .then(() =>
         setState((prev) => {
-        return { ...prev, days: updateSpots(prev), appointments }
+        return { ...prev, days, appointments }
       }))
       .catch()
   };
@@ -64,10 +64,11 @@ const useApplicationData = () => {
       ...state.appointments,
       [id]: { ...state.appointments[id], interview: null }
     };
+    const days = updateSpots(state, appointments);
     return axios.delete(`api/appointments/${id}`)
-    .then( () =>
+    .then(() =>
       setState((prev) => {
-      return { ...prev, days: updateSpots(prev), appointments }
+      return { ...prev, days, appointments }
     }))
   };
 
