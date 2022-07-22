@@ -50,30 +50,29 @@ const useApplicationData = () => {
       ...state.appointments,
       [id]: appointment
     };
-    return axios.put(`api/appointments/${id}`, appointments[id])
-      .then(
-        setState({ ...state, appointments })
-      )
-      .then(setState((prev) => {
-        return { ...prev, days: updateSpots(prev) }
-      }));
+    let promise = axios.put(`api/appointments/${id}`, appointments[id])
+    console.log("Promise: ", promise)
+    return promise
+      .then(() =>
+        setState((prev) => {
+        return { ...prev, days: updateSpots(prev), appointments }
+      }))
+      .catch()
   };
   // This function removes an interview from the database and updates the spots remaining in the sidebar in the app
-  async function cancelInterview(id) {
-    await axios.delete(`api/appointments/${id}`)
+  function cancelInterview(id) {
     const appointments = {
       ...state.appointments,
       [id]: { ...state.appointments[id], interview: null }
     };
-    setState((prev) => {
-      return { ...prev, appointments }
-    })
-    setState((prev) => {
-      return { ...prev, days: updateSpots(prev) }
-    });
+    return axios.delete(`api/appointments/${id}`)
+    .then(
+      setState((prev) => {
+      return { ...prev, days: updateSpots(prev), appointments }
+    }))
   };
 
-  return { state, setDay, bookInterview, cancelInterview }
+  return { state, setState, updateSpots, setDay, bookInterview, cancelInterview }
 };
 
 export default useApplicationData;
